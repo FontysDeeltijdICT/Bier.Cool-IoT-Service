@@ -1,23 +1,48 @@
 version: '3.7'
 services:
+  influxdb:
+    image: influxdb
+    volumes:
+    - db-data:/var/lib/influxdb
+    environment:
+    - DOCKER_INFLUXDB_INIT_USERNAME="admin"
+      DOCKER_INFLUXDB_INIT_PASSWORD="verysecretpassword"
   telegraf:
     image: telegraf
+    depends_on:
+    - influxdb
+      vernemq
     configs:
     - source: telegraf-conf
       target: /etc/telegraf/telegraf.conf
     ports:
     - 8186:8186
-  influxdb:
-    image: influxdb
   chronograf:
     image: chronograf
+    depends_on:
+      - influxdb
     ports:
     - 8880:8888
     command: ["chronograf", "--influxdb-url=http://influxdb:8086"]
   kapacitor:
     image: kapacitor
+    depends_on:
+    - influxdb
     environment:
     - KAPACITOR_INFLUXDB_0_URLS_0=http://influxdb:8086
+      KAPACITOR_INFLUXDB_0_USERNAME="admin"
+      KAPACITOR_INFLUXDB_0_PASSWORD="verysecretpassword"
+  vernemq:
+    image: vernemq/vernemq
+    ports:
+    - 8882:1883
+    - 8881:8888
+    environment:
+    - DOCKER_VERNEMQ_ACCEPT_EULA="yes"
+    
+volumes:
+  db-data:
+  
 configs:
   telegraf-conf:
     file: ./telegraf.conf
