@@ -1,0 +1,7 @@
+pattern beers/v1/%u/#
+
+user telegraf
+topic #
+
+user root
+topic #

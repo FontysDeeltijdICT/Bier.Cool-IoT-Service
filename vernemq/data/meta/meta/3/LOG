@@ -1,0 +1,36 @@
+2021/04/18-23:59:11.116246 7f53d2c4b700                        Version: 2.0.35 (open source)
+2021/04/18-23:59:11.116728 7f53d2c4b700             Options.comparator: leveldb.InternalKeyComparator
+2021/04/18-23:59:11.116939 7f53d2c4b700      Options.create_if_missing: 1
+2021/04/18-23:59:11.117157 7f53d2c4b700        Options.error_if_exists: 0
+2021/04/18-23:59:11.117357 7f53d2c4b700        Options.paranoid_checks: 0
+2021/04/18-23:59:11.117551 7f53d2c4b700     Options.verify_compactions: 1
+2021/04/18-23:59:11.117748 7f53d2c4b700                    Options.env: 0x7f546c0048c0
+2021/04/18-23:59:11.117942 7f53d2c4b700               Options.info_log: 0x7f5404016480
+2021/04/18-23:59:11.118299 7f53d2c4b700      Options.write_buffer_size: 50124276
+2021/04/18-23:59:11.118566 7f53d2c4b700         Options.max_open_files: 1000
+2021/04/18-23:59:11.118791 7f53d2c4b700            Options.block_cache: 0x7f540400d180
+2021/04/18-23:59:11.119008 7f53d2c4b700             Options.block_size: 4096
+2021/04/18-23:59:11.119230 7f53d2c4b700       Options.block_size_steps: 16
+2021/04/18-23:59:11.119490 7f53d2c4b700 Options.block_restart_interval: 16
+2021/04/18-23:59:11.119778 7f53d2c4b700            Options.compression: 1
+2021/04/18-23:59:11.120028 7f53d2c4b700          Options.filter_policy: leveldb.BuiltinBloomFilter2
+2021/04/18-23:59:11.120225 7f53d2c4b700              Options.is_repair: false
+2021/04/18-23:59:11.120398 7f53d2c4b700         Options.is_internal_db: false
+2021/04/18-23:59:11.120602 7f53d2c4b700      Options.total_leveldb_mem: 9228008652
+2021/04/18-23:59:11.120838 7f53d2c4b700  Options.block_cache_threshold: 33554432
+2021/04/18-23:59:11.121026 7f53d2c4b700  Options.limited_developer_mem: false
+2021/04/18-23:59:11.121207 7f53d2c4b700              Options.mmap_size: 0
+2021/04/18-23:59:11.121384 7f53d2c4b700       Options.delete_threshold: 1000
+2021/04/18-23:59:11.121555 7f53d2c4b700       Options.fadvise_willneed: false
+2021/04/18-23:59:11.121758 7f53d2c4b700      Options.tiered_slow_level: 0
+2021/04/18-23:59:11.121965 7f53d2c4b700     Options.tiered_fast_prefix: ./data/meta/meta/3
+2021/04/18-23:59:11.122166 7f53d2c4b700     Options.tiered_slow_prefix: ./data/meta/meta/3
+2021/04/18-23:59:11.122365 7f53d2c4b700                         crc32c: hardware
+2021/04/18-23:59:11.122557 7f53d2c4b700   Options.cache_object_warming: true
+2021/04/18-23:59:11.122794 7f53d2c4b700        Options.ExpiryActivated: false
+2021/04/18-23:59:11.123016 7f53d2c4b700          Options.expiry_module: NULL
+2021/04/18-23:59:11.123190 7f53d2c4b700                File cache size: 2171236179
+2021/04/18-23:59:11.123393 7f53d2c4b700               Block cache size: 2173333331
+2021/04/18-23:59:11.135331 7f53d2c4b700 Recovering log #13
+2021/04/18-23:59:11.156843 7f53d2c4b700 Delete type=0 #13
+2021/04/18-23:59:11.157971 7f53d2c4b700 Delete type=3 #12
