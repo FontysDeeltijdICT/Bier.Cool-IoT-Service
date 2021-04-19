@@ -1,1 +1,0 @@
-# Bier.Cool-IoT-Service
