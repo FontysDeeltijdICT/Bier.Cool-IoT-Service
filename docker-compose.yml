@@ -1,21 +1,16 @@
 version: '3'
 services:
   influxdb:
-    # Full tag list: https://hub.docker.com/r/library/influxdb/tags/
-    build:
-      context: ./images/influxdb/
-      dockerfile: ./latest/Dockerfile
-      args:
-        INFLUXDB_TAG: influxdb:latest
-    image: "influxdb"
+    image: "influxdb:2.0.4"
     environment:
       DOCKER_INFLUXDB_INIT_USERNAME: "root"
       DOCKER_INFLUXDB_INIT_PASSWORD: "verysecretpassword"
       DOCKER_INFLUXDB_INIT_ORG: "biercool"
       DOCKER_INFLUXDB_INIT_BUCKET: "biercool"
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ""
     volumes:
       # Mount for influxdb data directory
-      - ./influxdb/data:/var/lib/influxdb2
+      - influxdb-data:/var/lib/influxdb2
       # Mount for influxdb configuration
       - ./influxdb/config/:/etc/influxdb2/
     ports:
@@ -26,19 +21,14 @@ services:
       - "8089:8089/udp"
  
   vernemq:
-    build:
-      context: ./images/vernemq/
-      dockerfile: ./latest/Dockerfile
-      args:
-        INFLUXDB_TAG: vernemq/vernemq:latest
-    image: "vernemq"
+    image: "vernemq/vernemq:1.11.0"
     environment:
       DOCKER_VERNEMQ_ACCEPT_EULA: "yes"
     volumes:
       # Mount for vernemq configuration
       - ./vernemq/etc:/vernemq/etc
-      - ./vernemq/data:/vernemq/data
-      - ./vernemq/log:/vernemq/log
+      - vernemq-data:/vernemq/data
+      - vernemq-logs:/vernemq/log
     ports:
       # The API for InfluxDB is served on port 8086
       - "8887:8888"
@@ -46,13 +36,7 @@ services:
       - "1883:1883"
 
   telegraf:
-    # Full tag list: https://hub.docker.com/r/library/telegraf/tags/
-    build:
-      context: ./images/telegraf/
-      dockerfile: ./latest/Dockerfile
-      args:
-        TELEGRAF_TAG: telegraf:latest
-    image: "telegraf"
+    image: "telegraf:1.18.1"
     environment:
       HOSTNAME: "telegraf-getting-started"
     # Telegraf requires network access to InfluxDB
@@ -67,3 +51,7 @@ services:
     depends_on:
       - influxdb
       - vernemq
+volumes:
+  influxdb-data:
+  vernemq-data:
+  vernemq-logs:
